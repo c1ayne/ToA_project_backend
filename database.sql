@@ -1,17 +1,17 @@
 
-create TABLE distributor(
-    id SERIAL PRIMARY KEY UNIQUE,
-    article VARCHAR(50),
+CREATE TABLE distributor(
+    id SERIAL PRIMARY KEY,
+    article VARCHAR(100) UNIQUE NOT NULL,
     code INTEGER UNIQUE,
-    title VARCHAR(200),
-    category VARCHAR(50),
-    price INTEGER
+    title VARCHAR(270) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    price INTEGER NOT NULL
 );
 
-create TABLE retailer(
+CREATE TABLE retailer(
     id SERIAL PRIMARY KEY,
-    code INTEGER UNIQUE,
-    shop_name VARCHAR(50),
+    article VARCHAR(100) NOT NULL,
+    shop_name VARCHAR(50) NOT NULL,
     price INTEGER,
     distributor_id INTEGER,
     FOREIGN KEY (distributor_id) REFERENCES  distributor (id)
